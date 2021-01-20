@@ -1,5 +1,6 @@
 # belly_button_challenge
-!https://github.com/joe-m-2020/belly_button_challenge/blob/main/Images/bacteria.jpg
+
+https://github.com/[joe-m-2020]/[belly_button_challenge]/blob/[Images]/bacteria.jpg?raw=true
 
 For this challenge I made a an init function that held the sub functions for building the bar plot, populating the metadata, and building the bubble chart.
 
