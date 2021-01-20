@@ -1,4 +1,6 @@
 # belly_button_challenge
+!Images\bacteria.jpg
+
 For this challenge I made a an init function that held the sub functions for building the bar plot, populating the metadata, and building the bubble chart.
 
 I read the samples.json file in and created a drop down menu for passing the sample names for selecting the data to change dynamically.
