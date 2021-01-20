@@ -43,14 +43,14 @@ function buildBarPlot(selectedSubjectID) {
         // begin sample data handling
         const sample = samples.find(sample => parseInt(sample.id) === selectedSubjectID);
         const {otu_ids, otu_labels, sample_values} = sample;
-
+        //  slice, reverse, and added OTU string to OTU IDs to render data
         const first10OTUIDsReversed = otu_ids.slice(0, 10).reverse();
         console.log(first10OTUIDsReversed);
         const first10OTULabelssReversed = otu_labels.slice(0, 10).reverse();
         console.log(first10OTULabelssReversed);
         const first10OSamplesReversed = sample_values.slice(0, 10).reverse();
         console.log(first10OSamplesReversed);
-        // end sample data handling
+       
         var strOTUids = first10OTUIDsReversed.map(function(e) {return e.toString()});
         console.log(strOTUids)
         const str = 'OTU ';
@@ -60,6 +60,7 @@ function buildBarPlot(selectedSubjectID) {
             const str2 = str.concat(strOTUids[j]);
             joinedOTUids.push(str2);
         };
+         // end sample data handling
         console.log(joinedOTUids);
         var trace1 = {
             x: first10OSamplesReversed,
@@ -92,9 +93,10 @@ function popMetadata(selectedSubjectID) {
         var location = selectedSubject.location;
 
         // end subject data handling
+        //build table for metadata
         var table = d3.select('#sample-metadata');
         table.html('');
-
+        
         var trow = table.append('p');
         trow.text('ID: '+selectedSubject.id);
         console.log(selectedSubject.id);
@@ -134,7 +136,7 @@ function buildBubbleChart(selectedSubjectID){
         
         const first10OSamplesReversed = sample_values.slice(0, 10).reverse();
         
-        // end sample data handling
+        
         var strOTUids = first10OTUIDsReversed.map(function(e) {return e.toString()});
         
         const str = 'OTU ';
@@ -144,19 +146,19 @@ function buildBubbleChart(selectedSubjectID){
             const str2 = str.concat(strOTUids[j]);
             joinedOTUids.push(str2);
         };
-        
-        var trace1 = {
-            x: joinedOTUids,
+        // end sample data handling
+        var trace2 = {
+            x: first10OTUIDsReversed,
             y: first10OSamplesReversed,
             type: 'bubble',
-            orientation: 'h',
-            text: first10OTULabelssReversed,
-            marker: {
 
-                width: 1
+            text:first10OTULabelssReversed,
+            marker: {
+                size: first10OSamplesReversed,
+                color: first10OTUIDsReversed
             }
         };
-        var data2 = [trace1];
+        var data2 = [trace2];
 
         Plotly.newPlot('bubble', data2);
     });
