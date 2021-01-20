@@ -151,11 +151,12 @@ function buildBubbleChart(selectedSubjectID){
             x: first10OTUIDsReversed,
             y: first10OSamplesReversed,
             type: 'bubble',
-
+            mode: 'markers',
             text:first10OTULabelssReversed,
             marker: {
                 size: first10OSamplesReversed,
                 color: first10OTUIDsReversed
+            
             }
         };
         var data2 = [trace2];
